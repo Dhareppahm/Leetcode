@@ -13,10 +13,10 @@ Your algorithm should run in O(n) complexity.
 public class LongestConsecutiveSequence {
 
 	public static void main(String[] args) {
-		int[] numbers = {100,4,2,101,103,104,105,102};//{100,4,200,1,2,3};
+		int[] numbers = {100,4,200,1,2,3};
 		
-		int len1 = findLongestConseqSubseq(numbers);
-		System.out.println(len1);
+		int len = findLongestConseqSubseq(numbers);
+		System.out.println("Longest Subsequence length: "+len);
 
 	}
 
