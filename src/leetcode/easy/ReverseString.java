@@ -2,11 +2,16 @@ package leetcode.easy;
 
 import java.util.Stack;
 
-public class ReverseString {
+/**
+Problem:
+Write a function that takes a string as input and returns the string reversed.
+Example:
+Given s = "hello", return "olleh".
 
+ */
+public class ReverseString {
 	public static void main(String[] args) {
 		ReverseString obj = new ReverseString();
-
 		String s = "hello";
 		System.out.println(obj.reverseString_3(s));
 	}
@@ -82,6 +87,5 @@ public class ReverseString {
 			sb.append(stack.pop());			
 		}
 		return sb.toString();		
-	}
-	
+	}	
 }
