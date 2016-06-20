@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * https://leetcode.com/problems/generate-parentheses/
 22. Generate Parentheses
 Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
 
@@ -61,7 +62,6 @@ public class GenerateParentheses {
 		if(openCount > closeCount){
 			helper(list, str+")", n, openCount, closeCount+1);
 		}
-		
 	}
 	
 }
