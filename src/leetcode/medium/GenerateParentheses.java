@@ -16,8 +16,13 @@ For example, given n = 3, a solution set is:
   "()(())",
   "()()()"
 ]
-Subs
  *
+ * Approach:
+ 1. Its recursion and backtracking problem. Think about base condition and other conditions.
+ 2. Take 2 counters, openCount = counts open parenthesis & closeCount = counts close parenthesis
+ 3. Base condition: if openCount == n && closeCount == n, get final string and return.
+ 4. If openCount is less than n, add open bracket and increment openCount
+ 5. If closeCount becomes less than openCount,add close bracket and increment  closeCount.
  */
 public class GenerateParentheses {
 
@@ -38,9 +43,9 @@ public class GenerateParentheses {
 		helper(list, "", n, 0, 0);
 		return list;
 	}
-	
+
 	private void helper(List<String> list, String str, int n, int openCount, int closeCount){
-		
+
 		//Base condition: If openCount == n && closeCount == n, get final string and add to list
 		if(openCount == n && closeCount == n){
 			list.add(str);

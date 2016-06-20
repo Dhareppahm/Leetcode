@@ -7,17 +7,20 @@ Problem:
 Write a function that takes a string as input and returns the string reversed.
 Example:
 Given s = "hello", return "olleh".
-
  */
 public class ReverseString {
 	public static void main(String[] args) {
 		ReverseString obj = new ReverseString();
-		String s = "hello";
-		System.out.println(obj.reverseString_3(s));
+		String s = "hello world";
+
+		System.out.println(obj.reverseString_ByTwoPtrs(s));
+        System.out.println(obj.reverseString_ByLoop(s));
+        System.out.println(obj.reverseString_ByStringBuilder(s));
+        System.out.println(obj.reverseString_ByStack(s));
 	}
 
-	//Two pointers: start and end
-	public String reverseString(String s) {
+	//1. Using Two pointers: start and end
+	public String reverseString_ByTwoPtrs(String s) {
 		if(s == null){
 			return null;
 		}
@@ -42,8 +45,8 @@ public class ReverseString {
 		return new String(str);			//Time complexity: O(n), Space complexity: O(n) for char array
 	}
 	
-	//Loop till middle of String
-	public String reverseString_1(String s) {
+	//2. Loop till middle of String
+	public String reverseString_ByLoop(String s) {
 		if(s == null){
 			return null;
 		}
@@ -60,7 +63,7 @@ public class ReverseString {
 	
 	
 	//Using StringBuilder
-	public String reverseString_2(String s){
+	public String reverseString_ByStringBuilder(String s){
 		if(s == null){
 			return null;
 		}		
@@ -74,7 +77,7 @@ public class ReverseString {
 	}
 	
 	//Using Stack
-	public String reverseString_3(String s){
+	public String reverseString_ByStack(String s){
 		if(s == null){
 			return null;
 		}
