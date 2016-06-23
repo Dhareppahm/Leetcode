@@ -14,7 +14,7 @@ package leetcode.medium;
  left = left index
  right = right index
  3. Scan from both sides. If leftHeight < rightHeight, move right and find a value that is greater than leftHeight.
- 4. Similarily, if leftHeight > rightHeight, move left and find a value that is greater than rightHeight.
+ 4. Similarly, if leftHeight > rightHeight, move left and find a value that is greater than rightHeight.
  5. Additionally, keep tracking the max value.
 
  Note: You may not slant the container.
