@@ -57,7 +57,9 @@ public class TwoSum3{
 /** DESIGN 2:
 	Store the numbers in HashMap, so find runs in O(1) time
     1. Add: Store <num, freq> in map
-    2.
+    2.Find: Check if difference is present as key in map => If yes, return true
+            Check if difference is equal to num and if frequency is 2 => If Yes, return true
+            Else return false
 */
 public class TwoSum3 {
     HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
