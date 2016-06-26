@@ -79,10 +79,10 @@ public class ReverseWordsInString {
 
         int j = s.length();
         for(int i = s.length()-1; i >= 0; i--){
-            if (s.charAt(i) == ' ') {
+            if (s.charAt(i) == ' ') {                   //reset end of word pointer
                 j = i;
-            } else if (i == 0 || s.charAt(i - 1) == ' ') {
-                if (sb.length() != 0) {
+            } else if (i == 0 || s.charAt(i - 1) == ' ') {  //append word in string
+                if (sb.length() != 0) {                     //handle: " ", " 1", "1 "
                     sb.append(' ');
                 }
                 sb.append(s.substring(i, j));
