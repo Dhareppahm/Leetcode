@@ -70,9 +70,10 @@ public class ReverseWordsInString {
     }
 
     /**
-     * Can we do it in 1 pass?
-     * While iterating the string in reverse order, we keep track of a word’s begin and end position.
-     * When we are at the beginning of a word, we append it.
+     * Can we do it in 1 pass?     *
+     * One Pass Solution:     *
+     *      While iterating the string in reverse order, we keep track of a word’s begin and end position.
+     *      When we are at the beginning of a word, we append it.
      */
     public String reverseWords1(String s){
         StringBuilder sb = new StringBuilder();
