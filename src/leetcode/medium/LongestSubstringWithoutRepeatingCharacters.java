@@ -1,6 +1,7 @@
 package leetcode.medium;
 
 import java.util.Arrays;
+import java.util.HashSet;
 
 /**
  * https://leetcode.com/problems/longest-substring-without-repeating-characters/
@@ -27,7 +28,7 @@ public class LongestSubstringWithoutRepeatingCharacters {
     public static void main(String[] args) {
         LongestSubstringWithoutRepeatingCharacters obj = new LongestSubstringWithoutRepeatingCharacters();
 
-        String input = "abcabceg";
+        String input = "abcabcbbefghijbb";//"abcabcbb";
         int length = obj.lengthOfLongestSubstring(input);
         System.out.println(length);
     }
@@ -49,8 +50,8 @@ public class LongestSubstringWithoutRepeatingCharacters {
         }
 
         //retrieve longest substring
-        StringBuilder sb = new StringBuilder();
         int temp = maxLen;
+        HashSet<Integer> substringIndexes = new HashSet<Integer>();     //store substring result indexes in HashSet to check later
 
         while(temp > 0){
             int value = 0, index = 0;
@@ -62,12 +63,21 @@ public class LongestSubstringWithoutRepeatingCharacters {
                 }
             }
             visited[index] = -1;
-            sb.append((char) index);
-
+            substringIndexes.add(index);
             temp--;
         }
-        System.out.println(sb.reverse().toString());
 
+        StringBuilder sb = new StringBuilder();
+        //Loop through string and check if index present in HashSet & append in sequence found in original string
+        for(int i=0; i < s.length(); i++){
+            int index = (int) s.charAt(i);
+            if(substringIndexes.contains(index)){
+                sb.append(s.charAt(i));
+                substringIndexes.remove(index);
+            }
+        }
+
+        System.out.println(sb.toString());
         return maxLen;
     }
 
