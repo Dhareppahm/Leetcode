@@ -11,7 +11,10 @@ package leetcode.hard;
  T is "ece" which its length is 3.
  ----------------------------------------------------------------------------------------------------------------
  Approach:
-    1.
+    1. Method iterates n times and therefore its runtime complexity is O(n). We use three pointers: i, j, and k.
+
+    2. Generalized: The key is when we adjust the sliding window to satisfy the invariant, we need a counter of the
+                    number of times each character appears in the substring.
  */
 public class LongestSubstringWithAtmostTwoDistinctCharacters {
     public static void main(String[] args) {
