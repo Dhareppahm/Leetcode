@@ -37,17 +37,21 @@ public class LongestPalindromicSubstring {
     public static void main(String[] args) {
         LongestPalindromicSubstring obj = new LongestPalindromicSubstring();
 
-        String input = "ababac";
+        String input = "abaxabaxabb"; //"ababac";
+
 
         //1. Using DP
+        System.out.println("#Using Dynamic Programming: ");
         String result = obj.longestPalindromeDP(input);
         System.out.println(result);
 
         //2. Using Expanding around centers
+        System.out.println("\n#Using Expanding around centers approach: ");
         result = obj.longestPalindromeExpandingCenters(input);
         System.out.println(result);
 
         //3. Manacher
+        System.out.println("\n#Using Manachers Algorithm: ");
         int maxLen = obj.longestPalindromicSubstring_Manacher(input.toCharArray());
         System.out.println(maxLen);
     }
@@ -94,7 +98,7 @@ public class LongestPalindromicSubstring {
         }
 
         System.out.println("Length of Longest Substring : "+maxLen);
-        return s.substring(longestPalindromeBeginsAt, maxLen);
+        return s.substring(longestPalindromeBeginsAt, (s.length()%2 == 0 ? maxLen : maxLen+1));
 
     }
 
@@ -119,13 +123,12 @@ public class LongestPalindromicSubstring {
     private int expandAroundCenter(String s, int left, int right) {
         int L = left;
         int R = right;
-        while (L >= 0 && R < s.length() && s.charAt(L) == s.charAt(R)) {
-            L--;                                        //move left towards left and right towards right
+        while (L >= 0 && R < s.length() && s.charAt(L) == s.charAt(R)) {    //move left towards left and right towards right
+            L--;                                                            //if palindrome i.e characters are same
             R++;
         }
         return R - L - 1;
     }
-
 
 
     /** https://www.youtube.com/watch?v=V-sEwsca1ak
@@ -183,7 +186,7 @@ public class LongestPalindromicSubstring {
                 //of either left side palindrome or distance of j to end.
                 T[j] = Math.min(T[i - (j - i)], 2 * (end - j) + 1);
                 //Only proceed if we get case 3. This check is to make sure we do not pick j as new center for case 1 or case 4
-                //As soon as we find a center lets break out of this inner while loop.
+                //As soon as we find a center lets break out of this inner for loop.
                 if(j + T[i - (j - i)]/2 == end) {
                     newCenter = j;
                     break;
@@ -195,15 +198,12 @@ public class LongestPalindromicSubstring {
             start = i - T[i]/2;
         }
 
+
         //find the max palindrome in T and return it.
         int max = Integer.MIN_VALUE;
         for(int i = 0; i < T.length; i++) {
             int val;
-      /*      if(i%2 == 0) {
-                val = (T[i] -1)/2;
-            } else {
-                val = T[i]/2;
-            }*/
+
             val = T[i]/2;
             if(max < val) {
                 max = val;
