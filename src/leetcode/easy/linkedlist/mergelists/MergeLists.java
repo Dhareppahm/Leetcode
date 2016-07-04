@@ -59,7 +59,7 @@ class LinkedList {
         Node resultCurr = dummyHead;
 
         //Add from both lists till either list ends
-        while(curr1 != null && curr2 != null){
+        while(curr1 != null && curr2 != null) {
             if(curr1.data < curr2.data){   //V. imp logic => insert behind logic, so first add smaller one
                 resultCurr.next = curr1;
                 curr1 = curr1.next;
@@ -113,9 +113,8 @@ public class MergeLists {
         list2.display();
 
         LinkedList mergedList = new LinkedList();
-        mergedList.head = list1.mergeTwoLists(list1.head, list2.head);
+        mergedList.head = mergedList.mergeTwoLists(list1.head, list2.head);
         System.out.println("\nMerged List:");
         mergedList.display();
-
     }
 }
