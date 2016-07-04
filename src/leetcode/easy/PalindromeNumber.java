@@ -34,7 +34,7 @@ package leetcode.easy;
      return x;
  }
  (Works only for nonnegative integers.)
- 
+
  */
 public class PalindromeNumber {
     public static void main(String[] args) {
