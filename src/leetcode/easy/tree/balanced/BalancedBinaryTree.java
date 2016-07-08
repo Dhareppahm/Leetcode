@@ -20,6 +20,13 @@ package leetcode.easy.tree.balanced;
         IsHeightBalanced(tree.right) AND
         abs(Height(tree.left) - Height(tree.right)) <= 1)
 
+ 2. Optimal Approach:
+     1. We use a sentinel value –1 to represent that the tree is unbalanced so we could avoid unnecessary calculations.
+     2. In each step, we look at the left subtree’s depth (L), and ask: “Is the left subtree unbalanced?”
+     If it is indeed unbalanced, we return –1 right away. Otherwise, L represents the left subtree’s depth.
+     3. We then repeat the same process for the right subtree’s depth (R).
+     4. We calculate the absolute difference between L and R. If the subtrees’ depth difference is less than one,
+     we could return the height of the current node, otherwise return –1 meaning the current tree is unbalanced.
 
  */
 
