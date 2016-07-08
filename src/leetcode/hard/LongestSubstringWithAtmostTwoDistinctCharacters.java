@@ -15,43 +15,61 @@ package leetcode.hard;
 
     2. Generalized: The key is when we adjust the sliding window to satisfy the invariant, we need a counter of the
                     number of times each character appears in the substring.
+
+                    Maintain distinctCharacters counter. If it becomes more than K, move window ahead and check
+                    Keep track of window using i, j. Keep track of max window => maxLen, maxStart (i), maxEnd(j)
  */
 public class LongestSubstringWithAtmostTwoDistinctCharacters {
     public static void main(String[] args) {
         LongestSubstringWithAtmostTwoDistinctCharacters obj = new LongestSubstringWithAtmostTwoDistinctCharacters();
-        String s = "abbaacccccddd";
-        int maxLen = obj.lengthOfLongestSubstringTwoDistinct(s);
-        System.out.println(maxLen);
+        String s = "abbaacccccdddd";
 
-        int k = 2;
-        maxLen = obj.lengthOfLongestSubstringWithKDistinct_Generalised(s, k);
+//        int maxLen = obj.lengthOfLongestSubstringTwoDistinct(s);
+//        System.out.println(maxLen);
+        int k = 3;
+        int maxLen = obj.lengthOfLongestSubstringWithKDistinct_Generalised(s, k);
         System.out.println("Generalized for K distinct = "+maxLen);
     }
 
+
+    //Longest Substring with ATMOST k distinct characters
     public int lengthOfLongestSubstringWithKDistinct_Generalised(String s, int k) {
+        if(s == null || s.length() == 0){
+            System.out.println("Empty string found");
+            return 0;
+        }
+
+        //Logic
         int[] counts = new int[256];
-        int maxLen = 0, distinctNumbers = 0;
-        int i = 0;
-        for(int j = 0; j < s.length(); j++){
-            if(counts[s.charAt(j)] == 0){
-                distinctNumbers++;
+        int maxLen = 0, distinctChars = 0, maxStart = 0, maxEnd = 0;
+        int i = 0;                                  //i and j are window start, end pointers
+        for(int j = 0; j < s.length(); j++) {
+            if(counts[s.charAt(j)] == 0){           //only when we first encounter character, increment distinct char count
+                distinctChars++;
             }
             counts[s.charAt(j)]++;                  //increment frequency of char at j
 
-            while(distinctNumbers > k){            //here k=2 => check till distinct char <= k (2)
+            while(distinctChars > k) {             //CORE LOGIC: here k=2 => check till distinct char <= k (2)
                 counts[s.charAt(i)]--;             //decrement frequency of char at i
-                if(counts[s.charAt(i)] == 0){      // i points to previous k distinct character
-                    distinctNumbers--;
+                if(counts[s.charAt(i)] == 0) {     // i points to previous distinct character, so we loop till distinct char <= k
+                    distinctChars--;
                 }
-                i++;
+                i++;                                //move window start pointer ahead
             }
-            maxLen = Math.max(j-i+1, maxLen);       //choose max of (previous maxLen) , current (j - i +1)
+
+            //update maxLen and start,end to get max substring
+            if(j - i + 1 > maxLen){
+                maxLen = j-i+1;
+                maxStart = i;
+                maxEnd = j;
+            }
         }
+
+        System.out.println(s.substring(maxStart, maxEnd+1));
         return maxLen;
     }
 
-
-    public int lengthOfLongestSubstringTwoDistinct(String s) {
+    /*public int lengthOfLongestSubstringTwoDistinct(String s) {
         int maxLen = 0, i = 0, j = -1;
         for(int k=1; k < s.length(); k++){
             if(s.charAt(k) == s.charAt(k-1)){       //proceed if current and prev characters are same
@@ -66,7 +84,6 @@ public class LongestSubstringWithAtmostTwoDistinctCharacters {
         }
         maxLen = Math.max(s.length() - i, maxLen);
         return maxLen;
-    }
-
+    }*/
 
 }
