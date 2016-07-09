@@ -1,4 +1,4 @@
-package leetcode.easy.tree.createfromarray;
+package leetcode.medium.tree.createfromarray;
 
 /**
  https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/
@@ -74,6 +74,7 @@ public class CreateBSTFromSortedArray {
 
         int[] nums = {1,2,3,4,5};
         bst.root = bst.sortedArrayToBST(nums);
+        System.out.println("Binary Search Tree :");
         bst.displayInorder(bst.root);
     }
 }

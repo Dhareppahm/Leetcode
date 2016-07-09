@@ -1,4 +1,4 @@
-package leetcode.easy.linkedlist.swapnodes;
+package leetcode.medium.linkedlist.swapnodes;
 
 /**
  https://leetcode.com/problems/swap-nodes-in-pairs/

@@ -1,4 +1,4 @@
-package leetcode.easy.linkedlist.addnumbers;
+package leetcode.medium.linkedlist.addnumbers;
 
 
 
@@ -75,7 +75,7 @@ class LinkedList {
             curr2 = curr2.next;
         }
 
-        //If there are more numbers in list 1
+                                            //If there are more numbers in list 1
         if(curr1 != null){
             if(carry > 0){
                 curr.next = addTwoNumbers(curr1, new Node(carry));

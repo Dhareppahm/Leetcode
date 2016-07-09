@@ -1,4 +1,4 @@
-package leetcode.easy.tree.validatebst;
+package leetcode.medium.tree.validatebst;
 /*
 https://leetcode.com/problems/validate-binary-search-tree/
 

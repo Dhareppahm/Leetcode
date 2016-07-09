@@ -1,4 +1,4 @@
-package leetcode.easy.linkedlist.deepcopylist;
+package leetcode.hard.linkedlist.copylistrandompointer;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package leetcode.easy.linkedlist.mergeKlists;
+package leetcode.hard.linkedlist.mergeKlists;
 
 /**
  https://leetcode.com/problems/merge-k-sorted-lists/
@@ -76,7 +76,7 @@ class LinkedList {
         Node curr1 = head1;
         Node curr2 = head2;
 
-        Node dummyHead = new Node(0);           ////VV.V.V.imp to have a dummyHead here as we are inserting at behind
+        Node dummyHead = new Node(0);           ////VV.V.imp to have a dummyHead here as we are inserting at behind
         Node resultCurr = dummyHead;
 
         //Add from both lists till either list ends

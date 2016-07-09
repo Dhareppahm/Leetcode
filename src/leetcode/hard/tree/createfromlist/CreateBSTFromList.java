@@ -1,4 +1,4 @@
-package leetcode.easy.tree.createfromlist;
+package leetcode.hard.tree.createfromlist;
 
 /**
  https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/
@@ -95,6 +95,7 @@ class BinarySearchTree {
         return createBST(0 , length - 1);
     }
 
+    //Create BST from bottom-up approach
     private TreeNode createBST(int start, int end) {
         if(start > end) {
             return null;
