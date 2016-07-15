@@ -55,9 +55,7 @@ class LinkedList {
         Node curr1 = head1;
         Node curr2 = head2;
 
-        //V.V.imp to have a dummyHead here as we are inserting at behind
-        Node dummyHead = new Node(0);
-
+        Node dummyHead = new Node(0);       //V.V.imp to have a dummyHead here as we are inserting at behind
         Node resultCurr = dummyHead;
 
         //Add from both lists till either list ends
@@ -79,7 +77,7 @@ class LinkedList {
         if(curr1 != null){
             resultCurr.next = curr1;
         }
-        
+
         //Return dummyHead.next which is actual start of mergedList. resultCurr will be at end of merged list so using dummyHead is IMP
         return dummyHead.next;
     }
