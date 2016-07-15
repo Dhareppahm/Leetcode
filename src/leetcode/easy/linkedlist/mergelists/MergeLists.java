@@ -50,36 +50,36 @@ class LinkedList {
         }
     }
 
-    //Merge lists
+    //Merge Two lists
     public Node mergeTwoLists(Node head1, Node head2){
         Node curr1 = head1;
         Node curr2 = head2;
 
-        Node dummyHead = new Node(0);           ////VV.V.V.imp to have a dummyHead here as we are inserting at behind
+        //V.V.imp to have a dummyHead here as we are inserting at behind
+        Node dummyHead = new Node(0);
+
         Node resultCurr = dummyHead;
 
         //Add from both lists till either list ends
         while(curr1 != null && curr2 != null) {
-            if(curr1.data < curr2.data){   //V. imp logic => insert behind logic, so first add smaller one
-                resultCurr.next = curr1;
-                curr1 = curr1.next;
-            }else{
-                resultCurr.next = curr2;
+            if(curr1.data > curr2.data){   //V. imp logic => insert behind logic, so first add smaller one
+                resultCurr.next = curr2;    //curr2 smaller, so insert curr2
                 curr2 = curr2.next;
+            }else{
+                resultCurr.next = curr1;    //else insert curr1
+                curr1 = curr1.next;
             }
             resultCurr = resultCurr.next;   //move resultCurr forward
         }
 
-        //Add rest from list1
-        if(curr1 != null){
-            resultCurr.next = curr1;
-        }
-
-        //Add rest from list2
+        //Add rest from list2 and list 1
         if(curr2 != null){
             resultCurr.next = curr2;
         }
-
+        if(curr1 != null){
+            resultCurr.next = curr1;
+        }
+        
         //Return dummyHead.next which is actual start of mergedList. resultCurr will be at end of merged list so using dummyHead is IMP
         return dummyHead.next;
     }
