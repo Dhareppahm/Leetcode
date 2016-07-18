@@ -12,7 +12,7 @@ import java.util.Arrays;
  You must do this in-place without making a copy of the array.
  Minimize the total number of operations.
  -------------------------------------------------------------------------------------------------------------------------
- Approachs:
+ Approaches:
     A. Brute Force:
         2 pointers, if nums[i] == 0, then using nonZeroPtr find next non-zero number and swap with nums[i]
         In Worst case, we need to traverse till end of array in second loop, Complexity O(n^2)
