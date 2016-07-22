@@ -14,10 +14,10 @@ public class NumberOf1Bits {
     // you need to treat n as an unsigned value
     public int hammingWeight(int n) {
         int count = 0;
-        while(n != 0){
-            count = count + (n & 1);    //n in bit AND with 1 and if this operation result is 1, so last bit of n is 1.
-                                        // Thus we add it to the 1s count.
-            n = n >>> 1;                //Then we shift the input Integer by one on the right, to check for the next bit.
+        while(n != 0){      //Use n!=0 in the while condition, not n>0 as 2147483648 would correspond to -2147483648 in java
+            //and the code would not enter the while if the condition is n>0 for n=2147483648.
+            count++;
+            n = n & (n - 1);
         }
         return count;
     }
