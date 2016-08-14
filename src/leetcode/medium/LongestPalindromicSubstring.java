@@ -15,7 +15,7 @@ package leetcode.medium;
          The base cases are:
 
          P[ i, i ] ← true                       // For length 1
-         P[ i, i+1 ] ← ( Si = Si+1 )            // For length 2
+         P[ i, i+1 ] ← if (Si == Si+1)        // For length 2
 
         /*Check 2 things:
           The first and last characters should be match
@@ -37,7 +37,7 @@ public class LongestPalindromicSubstring {
     public static void main(String[] args) {
         LongestPalindromicSubstring obj = new LongestPalindromicSubstring();
 
-        String input = "abaxabaxabb"; //"ababac";
+        String input = "ababac";//"abaxabaxabb"; //"ababac";
 
 
         //1. Using DP

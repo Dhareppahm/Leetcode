@@ -28,6 +28,7 @@ package leetcode.easy.tree.balanced;
      4. We calculate the absolute difference between L and R. If the subtrees’ depth difference is less than one,
      we could return the height of the current node, otherwise return –1 meaning the current tree is unbalanced.
 
+ See also: datastructures.treesgraphs.checkbalanced
  */
 
 class Node{
