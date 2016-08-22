@@ -30,7 +30,7 @@ Your algorithm's time complexity must be better than O(n log n), where n is the 
 public class TopKFrequentElements {
 
 	public static void main(String[] args) {
-		int[] nums = {1,1,1,2,2,3};
+		int[] nums = {4,4,4,4,1,1,4,1,2,2,2,2,3,3};
 		int k = 2;
 		TopKFrequentElements obj = new TopKFrequentElements();
 		
@@ -53,13 +53,15 @@ public class TopKFrequentElements {
         }
         
         //Using MinHeap
-        PriorityQueue<Map.Entry<Integer, Integer>> pq = new PriorityQueue<>(new Comparator<Map.Entry<Integer, Integer>>() {
+        /*PriorityQueue<Map.Entry<Integer, Integer>> pq = new PriorityQueue<>(new Comparator<Map.Entry<Integer, Integer>>() {
             @Override
             public int compare(Map.Entry<Integer, Integer> o1, Map.Entry<Integer, Integer> o2) {
                 //Min Heap
                 return o1.getValue() - o2.getValue();    //Value in map is frequency
             }
-        });
+        });*/
+        PriorityQueue<Map.Entry<Integer, Integer>> pq = new PriorityQueue<>(new MinHeapComparator());   //min heap comparator class
+
         int i = 0;
         for(Map.Entry<Integer, Integer> entry : map.entrySet()){
         	if(i < k){
@@ -81,11 +83,11 @@ public class TopKFrequentElements {
         return list;
     }
 	
-	/*class MinHeapComparator implements Comparator<Map.Entry<Integer, Integer>>{
+	class MinHeapComparator implements Comparator<Map.Entry<Integer, Integer>>{
 		public int compare(Map.Entry<Integer, Integer> o1, Map.Entry<Integer, Integer> o2) {
 			//Ascending order: so min heap
 			return o1.getValue() - o2.getValue();
 		}		
-	}*/
+	}
 
 }
