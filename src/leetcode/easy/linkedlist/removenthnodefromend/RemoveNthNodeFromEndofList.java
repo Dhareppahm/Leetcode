@@ -14,7 +14,13 @@ package leetcode.easy.linkedlist.removenthnodefromend;
  Note:
  Given n will always be valid.
  Try to do this in one pass.
-
+-----------------------------------------------------------------------------------------------------------------------
+ Approach:
+ 1. A one pass solution can be done using pointers. Move one pointer fast --> n+1 places forward,
+    to maintain a gap of n between the two pointers
+ 2. Then move both at the same speed.
+ 3. Finally, when the fast pointer reaches the end, the slow pointer will be n+1 places behind -
+    just the right spot for it to be able to skip the next node.
  */
 
 //Represent the Node of linkedlist
