@@ -80,12 +80,14 @@ public class ThreeSum {
                     right--;
                 }else if(sum < 0){
                     left++;
-                    while (left < right && nums[left] == nums[left-1])        // Skip equal elements to avoid duplicates
+                    while (left < right && nums[left] == nums[left-1]) {        // Skip equal elements to avoid duplicates
                         left++;
+                    }
                 }else{
                     right--;
-                    while (left < right && nums[right] == nums[right+1])     // Skip equal elements to avoid duplicates
+                    while (left < right && nums[right] == nums[right+1]) {     // Skip equal elements to avoid duplicates
                         right--;
+                    }
                 }
             }
         }
