@@ -7,6 +7,7 @@ import java.util.HashSet;
  * https://leetcode.com/problems/longest-substring-without-repeating-characters/
  * http://www.geeksforgeeks.org/length-of-the-longest-substring-without-repeating-characters/
  *
+ * 3. Longest Substring Without Repeating Characters
  * Given a string, find the length of the longest substring without repeating characters.
 
  Examples:
@@ -28,7 +29,7 @@ public class LongestSubstringWithoutRepeatingCharacters {
     public static void main(String[] args) {
         LongestSubstringWithoutRepeatingCharacters obj = new LongestSubstringWithoutRepeatingCharacters();
 
-        String input = "abcabcbbefghijbb";//"abcabcbb";
+        String input = "abcabcbb";//"abcabcbbefghijbb";//"abcabcbb";
         int length = obj.lengthOfLongestSubstring(input);
         System.out.println(length);
     }
@@ -49,7 +50,7 @@ public class LongestSubstringWithoutRepeatingCharacters {
             maxLen = Math.max(i - prev + 1, maxLen);
         }
 
-        //retrieve longest substring
+        //Extra:: To retrieve longest substring
         int temp = maxLen;
         HashSet<Integer> substringIndexes = new HashSet<Integer>();     //store substring result indexes in HashSet to check later
 

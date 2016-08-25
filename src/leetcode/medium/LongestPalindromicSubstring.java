@@ -65,8 +65,8 @@ public class LongestPalindromicSubstring {
      */
     public String longestPalindromeDP(String s) {
         int n = s.length();
-        int longestPalindromeBeginsAt = 0;               //index where palindrome begins
-        int maxLen = 1;                                 //length of longest palindrome
+        int longestPalindromeBeginsAt = 0;      //index where palindrome begins
+        int maxLen = 1;                    //length of longest palindrome is atleast 1 as single letter is palindrome of itself
         boolean[][] T = new boolean[n][n];
 
         //Trivial Case: Check single letter palindromes
@@ -132,18 +132,18 @@ public class LongestPalindromicSubstring {
 
 
     /** https://www.youtube.com/watch?v=V-sEwsca1ak
-     * Linear time Manacher's algorithm to find longest palindromic substring.
-     *
-     * There are 4 cases to handle
-     * Case 1 : Right side palindrome is totally contained under current palindrome. In this case do not consider this as center.
-     * Case 2 : Current palindrome is proper suffix of input. Terminate the loop in this case.
-     *          No better palindrome will be found on right.
-     * Case 3 : Right side palindrome is proper suffix and its corresponding left side palindrome is proper prefix of current palindrome.
-     *          Make largest such point as next center.
-     * Case 4 : Right side palindrome is proper suffix but its left corresponding palindrome is be beyond current palindrome.
-     *          Do not consider this as center because it will not extend at all.
-     *
-     * To handle even size palindromes replace input string with one containing $ between every input character and in start and end.
+ * Linear time Manacher's algorithm to find longest palindromic substring.
+ *
+ * There are 4 cases to handle
+ * Case 1 : Right side palindrome is totally contained under current palindrome. In this case do not consider this as center.
+ * Case 2 : Current palindrome is proper suffix of input. Terminate the loop in this case.
+ *          No better palindrome will be found on right.
+ * Case 3 : Right side palindrome is proper suffix and its corresponding left side palindrome is proper prefix of current palindrome.
+ *          Make largest such point as next center.
+ * Case 4 : Right side palindrome is proper suffix but its left corresponding palindrome is be beyond current palindrome.
+ *          Do not consider this as center because it will not extend at all.
+ *
+ * To handle even size palindromes replace input string with one containing $ between every input character and in start and end.
      */
     public int longestPalindromicSubstring_Manacher(char input[]) {
         int index = 0;

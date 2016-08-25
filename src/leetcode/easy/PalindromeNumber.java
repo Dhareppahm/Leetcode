@@ -13,7 +13,7 @@ package leetcode.easy;
 
  There is a more generic way of solving this problem.
  * --------------------------------------------------------------------------------------------------------------------
- Approach: (Use 2 pointer approach as used in String, but we have constraint not to use extra space so work with integer)
+ Approach 1: (Use 2 pointer approach as used in String, but we have constraint not to use extra space so work with integer)
     a. Take a int variable, of same no.of zeros of number
     b. Take leftmost digit and right most digit, and compare
     c. Remove left and right most number, reduce variable by 100 and continue till number != 0
@@ -35,16 +35,22 @@ package leetcode.easy;
  }
  (Works only for nonnegative integers.)
 
+ Approach 2: Reverse number and check if equal to original number
+
  */
 public class PalindromeNumber {
     public static void main(String[] args) {
         PalindromeNumber pn = new PalindromeNumber();
 
-        int num = 1000021;
+        int num = 1230421;
         boolean flag = pn.isPalindrome(num);
-        System.out.println(flag);
+        System.out.println("Approach 1: " + flag);
+
+        flag = pn.isPalindrome_1(num);
+        System.out.println("Approach 2: "+flag);
     }
 
+    //Approach 1
     public boolean isPalindrome(int x) {
         if(x < 0){                  //Check if -ve => Not a Palindrome
             return false;
@@ -77,5 +83,18 @@ public class PalindromeNumber {
             num /= 10;
         }
         return num;
+    }
+
+
+    //Approach 2
+    public boolean isPalindrome_1(int x) {
+        int temp = x;
+        int reverse = 0;
+        while (x > 0){
+            reverse = reverse * 10 + x % 10;
+            x = x / 10;
+        }
+        System.out.println("original = "+ temp +" reverse = "+ reverse);
+        return temp == reverse;
     }
 }
