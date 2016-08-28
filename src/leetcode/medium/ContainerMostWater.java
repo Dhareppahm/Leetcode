@@ -38,11 +38,12 @@ public class ContainerMostWater{
         int right = height.length - 1;		//from end of array
 
         while(left < right){
-            maxArea = Math.max(maxArea, (right - left) * Math.min(height[right], height[left]));	//Area = l * b, keep track of maxArea
-            if(height[left] > height[right]){
-                right--;
-            }else{
+            int area = (right - left) * Math.min(height[right], height[left]);      //Area = l * b, min as water can only be filled till one of min heights
+            maxArea = Math.max(maxArea, area);	//Area = l * b, keep track of maxArea
+            if(height[left] < height[right]){
                 left++;
+            }else{
+                right--;
             }
             System.out.println(maxArea);
         }
