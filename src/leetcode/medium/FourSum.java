@@ -22,6 +22,11 @@ import java.util.List;
  [-2,  0, 0, 2]
  ]
  -----------------------------------------------------------------------------------------------------------------------
+ A typical k-sum problem. Time is N to the power of (k-1).
+
+ Keep 1 outer loop and reduce rest of solution to 3-Sum problem
+
+ Lower bound Ω(n^3) : https://discuss.leetcode.com/topic/27445/lower-bound-%CF%89-n-3
  */
 public class FourSum {
 
