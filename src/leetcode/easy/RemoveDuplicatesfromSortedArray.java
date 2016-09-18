@@ -29,15 +29,15 @@ public class RemoveDuplicatesfromSortedArray {
      * Two Pointer approach
      */
     public int removeDuplicates(int[] nums) {
-        int j=0;                                 //one pointer to 0 and
+        int prev=0;                                 //prev pointer start from 0 and
 
-        for(int i=1; i < nums.length; i++) {     //another pointer to 1 to start and check with j
-            if(nums[j] != nums[i]){             //if current value not equals to first pointer value
-                nums[++j] = nums[i];            //replace first pointer value with current value
+        for(int i=1; i < nums.length; i++) {       //i-th pointer start from 1 and check with prev
+            if(nums[prev] != nums[i]){             //if current value not equals to prev pointer value
+                nums[++prev] = nums[i];            //increment prev and replace prev pointer value with current value
             }
                                                 //if values same, let loop continue
         }
         System.out.println(Arrays.toString(nums));
-        return j+1;
+        return prev+1;
     }
 }
