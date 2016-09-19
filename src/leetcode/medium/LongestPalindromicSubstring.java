@@ -38,6 +38,7 @@ public class LongestPalindromicSubstring {
         LongestPalindromicSubstring obj = new LongestPalindromicSubstring();
 
         String input = "ababac";//"abaxabaxabb"; //"ababac";
+//                "civilwartestingwhetherthatnaptionoranynartionsoconceivedandsodedicatedcanlongendureWeareqmetonagreatbattlefiemldoftzhatwarWehavecometodedicpateaportionofthatfieldasafinalrestingplaceforthosewhoheregavetheirlivesthatthatnationmightliveItisaltogetherfangandproperthatweshoulddothisButinalargersensewecannotdedicatewecannotconsecratewecannothallowthisgroundThebravelmenlivinganddeadwhostruggledherehaveconsecrateditfaraboveourpoorponwertoaddordetractTgheworldadswfilllittlenotlenorlongrememberwhatwesayherebutitcanneverforgetwhattheydidhereItisforusthelivingrathertobededicatedheretotheulnfinishedworkwhichtheywhofoughtherehavethusfarsonoblyadvancedItisratherforustobeherededicatedtothegreattdafskremainingbeforeusthatfromthesehonoreddeadwetakeincreaseddevotiontothatcauseforwhichtheygavethelastpfullmeasureofdevotionthatweherehighlyresolvethatthesedeadshallnothavediedinvainthatthisnationunsderGodshallhaveanewbirthoffreedomandthatgovernmentofthepeoplebythepeopleforthepeopleshallnotperishfromtheearth";
 
 
         //1. Using DP
@@ -97,8 +98,8 @@ public class LongestPalindromicSubstring {
             }
         }
 
-        System.out.println("Length of Longest Substring : "+maxLen);
-        return s.substring(longestPalindromeBeginsAt, (s.length()%2 == 0 ? maxLen : maxLen+1));
+//        System.out.println("Length of Longest Substring : "+maxLen + " : " + s.length() + " : "+longestPalindromeBeginsAt);
+        return s.substring(longestPalindromeBeginsAt, longestPalindromeBeginsAt + maxLen);
 
     }
 
