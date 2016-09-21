@@ -33,30 +33,30 @@ public class PlusOne {
     }
 
     public int[] plusOne(int[] digits) {
-        if(digits == null || digits.length==0){     //if empty input
-            return new int[0];
+
+        //edge cases
+        if(digits == null || digits.length==0){
+            digits = new int[1];
         }
 
-        int carry = 1;                              //set to 1 as we need to plus 1
-        for(int i = digits.length-1; i >= 0; i--){  //sum and carry logic
+        int carry = 1;                      //start with carry 1 as we want to add 1
+        for(int i=digits.length-1; i >= 0; i--){
             int sum = digits[i] + carry;
-            if(sum >= 10){
-                carry = 1;
-            }else{
-                carry = 0;
-            }
-            digits[i] = sum % 10;
+            carry = sum / 10;
+            sum = sum % 10;
+
+            digits[i] = sum;
         }
 
-        //If carry == 1, we need to put carry in new array of digits.length+1
-        if(carry == 1){
+        //if carry remaining, create new array and add carry to it
+        if(carry > 0){
             int[] result = new int[digits.length+1];
-            System.arraycopy(digits, 0, result, 1, digits.length);      //copy from 1 index as we have to put carry at [0]
             result[0] = carry;
+            for(int i=1; i < digits.length; i++){           //copy everything from digits to result
+                result[i] = digits[i];
+            }
             return result;
-        }else{
-            return digits;
         }
-
+        return digits;
     }
 }
