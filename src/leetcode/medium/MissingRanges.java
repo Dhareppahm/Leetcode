@@ -26,7 +26,7 @@ import java.util.List;
  -- If the array is empty, the missing ranges should be from lower to upper, inclusive.
  -- For the leading missing range, e.g. -2 , [-1], -1. The output should be "-2". Note that the lower bound is inclusive.
  -- For the trailing missing range, e.g. -2, [-2], 1, the output should be "-1->1". The upper bound is inclusive as well.
- 
+
  Approach: Easy but very tricky to handle all cases
  1. Handle edge case of empty array: [0->99]
  2. Handle separately handle first, middle and last entries
