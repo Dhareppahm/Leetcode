@@ -2,6 +2,7 @@ package leetcode.medium;
 
 import java.util.Arrays;
 /*
+    https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/
 	167.	Two Sum II - Input array is sorted
 	Question:
     Similar to Question [1. Two Sum], except that the input array is already sorted in ascending order
@@ -65,9 +66,10 @@ public class TwoSum2 {
         int i = 0;
         int j = nums.length-1;
         while(i < j){
-            if(nums[i] + nums[j] > target){
+            int sum = nums[i] + nums[j];
+            if(sum > target){
                 j--;
-            }else if(nums[i] + nums[j] < target){
+            }else if(sum < target){
                 i++;
             }else{
                 return new int[] {i, j};

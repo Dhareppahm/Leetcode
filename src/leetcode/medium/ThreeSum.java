@@ -36,7 +36,6 @@ import java.util.List;
  Each time check if num[left]==num[left+1] to skip duplicates
  Each time check if num[right]==num[right-1] to skip duplicates
 
-
  */
 public class ThreeSum {
 

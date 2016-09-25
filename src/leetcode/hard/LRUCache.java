@@ -65,7 +65,12 @@ class LRUMap<K,V> extends LinkedHashMap<K,V>{
     }
 
     //KEY : Override LinkedHashMap method, which by default returns false, so elements can keep on being added
-    //We return true, when size() > cacheSize. So we remove elements after incresing cacheSize
+    //We return true, when size() > cacheSize. So we remove elements after increasing cacheSize
+    /**
+     * In other words, after put operation, LinkedHashMap will call this function, and if this function returns true,
+     * it will remove the eldest entry. Therefore, we need to make sure it returns true if and only if map.size()
+     * is greater than the CAPACITY specified.
+     */
     @Override
     protected boolean removeEldestEntry(Map.Entry<K,V> eldest) {
         return size() > cacheSize;
