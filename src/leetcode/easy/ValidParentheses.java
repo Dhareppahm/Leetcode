@@ -23,7 +23,7 @@ public class ValidParentheses {
 
     public static void main(String[] args) {
         ValidParentheses vp = new ValidParentheses();
-        String s = "";
+        String s = "[()]";
         boolean valid = vp.isValid(s);
         System.out.println(valid);
     }

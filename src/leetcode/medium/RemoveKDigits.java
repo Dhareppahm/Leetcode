@@ -22,6 +22,18 @@ package leetcode.medium;
  Output: "0"
  Explanation: Remove all the digits from the number and it is left with nothing which is 0.
  -----------------------------------------------------------------------------------------------------------------------
+ #Greedy Approach:
+ 1. Now we get the rules to delete digits to get the least remaining number:
+ - If there is a digit which is greater than the next one, delete such first digit.
+ - If all digits in the number are increasingly sorted, the last digit gets deleted.
+ 2. The process repeats until the required k digits are deleted.
+
+ 121198   n=2
+ first digit greater than next digit = 2, so 11198, n=1
+ first digit greater than next digit = 9, so 1118, n=0
+ Note: For opposite (Find largest number) find and remove first digit smaller than next one
+
+ #Using Stack:
 
  */
 public class RemoveKDigits {
