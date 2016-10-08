@@ -25,8 +25,7 @@ public class BestTimeBuySellStock{
 
 	public static void main(String[] args){
 		BestTimeBuySellStock obj = new BestTimeBuySellStock();
-		int[] prices = 
-						{2,1,2,1,0,1,2};
+		int[] prices =  {2,1,2,1,0,1,2};
 						//{7, 6, 4, 3, 1};
 						// {7, 1, 5, 3, 6, 4};
 						// {7,2,5,3,6,4,3,6,7,7,3,9,7,4,2,1};
@@ -35,7 +34,7 @@ public class BestTimeBuySellStock{
 	}
 
 	/*
-	We can maintain two variables - buy = minprice (minimum price to buy) and 
+	We can maintain two variables: buy = minprice (minimum price to buy) and
 	profit = maxprofit corresponding to (maximum difference between selling price and minprice) obtained so far respectively.
 	*/
 	public int maxProfit(int[] prices) {
@@ -52,8 +51,7 @@ public class BestTimeBuySellStock{
 
 			if(profit < prices[i] - buy){						//sell at max price, so check if more profit is found
 				profit = prices[i] - buy;
-			}		
-
+			}
 		}	
 
         return profit;

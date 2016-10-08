@@ -19,7 +19,7 @@ public class ValidPalindrome {
 
     public static void main(String[] args) {
         ValidPalindrome obj = new ValidPalindrome();
-        String str = "race a car";//"A man, a plan, a canal: Panama";
+        String str = "A man, a plan, a canal: Panama";
 
         boolean isPalindrome = obj.isPalindrome(str);
         System.out.println(isPalindrome);
@@ -34,20 +34,18 @@ public class ValidPalindrome {
     public boolean isPalindrome(String s) {
         int i = 0, j = s.length()-1;
         while(i < j){
-            char start = s.charAt(i);
-            char end = s.charAt(j);
-            if(Character.isLetterOrDigit(start) && Character.isLetterOrDigit(end)){
-                if(Character.toLowerCase(start) == Character.toLowerCase(end)) {    //compare ignoring case
-                    i++;
-                    j--;
-                }else{
-                    return false;
-                }
-            }else if(!Character.isLetterOrDigit(start)){        //if special characters, proceed
+
+            while(i < j && !Character.isLetterOrDigit(s.charAt(i)))     //proceed further if special character ignoring them
                 i++;
-            }else if(!Character.isLetterOrDigit(end)){
+            while(i < j && !Character.isLetterOrDigit(s.charAt(j)))
                 j--;
+
+            if(Character.toLowerCase(s.charAt(i)) !=
+                    Character.toLowerCase(s.charAt(j))) {    //ignore case and comapre characters
+                return false;
             }
+            i++;                                            //move both pointers
+            j--;
         }
         return true;
     }

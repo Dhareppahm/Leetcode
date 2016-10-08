@@ -5,21 +5,27 @@ package leetcode.easy;
  *
  * Implement strStr().
    Returns the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.
- *
+
+ Other Advanced Algorithms for String searching:
+ 1. KMP Algorithm : O(m+n)
+ 2. Rabin-Karp algorithm
+ 3. Boyer-Moore algorithm
+ 4. Z algorithm
  */
 public class StrStr {
 
     public static void main(String[] args) {
         StrStr obj = new StrStr();
         String haystack = "aczefghijklmnefghijpqrs";
-        String needle = "efghijz";
+        String needle = "efghijl";
 
         int index = obj.strStr(haystack, needle);
         System.out.println(index);
     }
 
     /**
-     * Complexity: O(mn) but efficient as inner loop of needle only proceeds when first character of both match, else break inner loop
+     * Complexity: O(mn) but efficient as inner loop of needle only proceeds when first character of both match,
+     * else break inner loop
      */
     public int strStr(String haystack, String needle) {
         for(int i=0; ;i++){
