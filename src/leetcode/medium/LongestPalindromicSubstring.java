@@ -7,6 +7,9 @@ package leetcode.medium;
  * and there exists one unique longest palindromic substring
  * ---------------------------------------------------------------------------------------------------------------------
  * Approach:
+ http://articles.leetcode.com/longest-palindromic-substring-part-i
+ http://articles.leetcode.com/longest-palindromic-substring-part-ii
+
   1. Dynamic Programming:
         Time complexity O(n^2) and Space Complexity O(n^2)
         https://www.youtube.com/watch?v=obBdxeCx_Qs

@@ -19,12 +19,15 @@ Make sure you handle all the possible cases like:
 " 0.1 " => true
 "abc" => false
 "1 a" => false
+"1 1" => false
 "2e10" => true
 "2e" => false
 "e9" => false
 "005047e-9" => true
 "  005047e+9   " => true
-
+"." => false
+"1." => true
+".1" => true
 */
 public class ValidNumber {
 
@@ -52,7 +55,7 @@ public class ValidNumber {
         //check '.'. There should not be just a '.' It should be '1.' or '.1'
         if(i < n && s.charAt(i) == '.'){
 			i++;
-        	while(i < n && (Character.isDigit(s.charAt(i))) ){
+			while(i < n && (Character.isDigit(s.charAt(i))) ){
         		isValid = true;
         		i++;
         	}

@@ -14,9 +14,15 @@ package leetcode.medium;
  -----------------------------------------------------------------------------------------------------------------------
  Approach:
  1. This is special case of general Edit distance problem which is solved by DP in O(mn) time and O(mn) space
- 2. As we have to check only 1-edit distance, we can loop once concurrently and check if Insert/Modify/Delete have to be done for 1 char
+ 2. As we have to check only 1-edit distance, we can loop once concurrently and check if Add/Modify/Delete have to be done for 1 char
  3. Assume m <= n, else just swap S and T
- 4. Handle - Modify, Delete/Insert, Append operations correctly - all cases
+ 4. Handle - Add/Append, Modify, Delete operations correctly - all cases
+
+    Append case: If S matches all characters in T, then check if there is an extra character at the end of T
+    Modify case: If | n – m | == 1, that means we must skip this non-matching character only in T
+                 and make sure the remaining characters between S and T are exactly matching.
+    Delete case: If | n – m | == 0, then we skip both non-matching characters in S and T and make
+                 sure the remaining characters between S and T are exactly matching.
  */
 public class OneEditDistance {
     public static void main(String[] args) {
@@ -37,7 +43,7 @@ public class OneEditDistance {
             return isOneEditDistance(t, s);
         }
 
-        //Return immediately is (n-m) > 1
+        //IMP check: Return immediately is (n-m) > 1
         if(n - m > 1){
             return false;
         }
@@ -48,16 +54,15 @@ public class OneEditDistance {
         }
 
         int extraChars = n - m;                         //Number of extra chars
-        if(i == m){                                     //Check end reached if both same
-            return extraChars == 1;                      //If only 1 extra char remains at end, return true
-        }                                               //If both strings are same, return false
+        if(i == m){                                     //Append Opr: Reached end of smaller string and 1 extra char
+            return extraChars == 1 ? true : false;      //If both strings are same, no extra char return false
+        }
 
-        //Modify Opr: If extra char in middle, move forward
-        if(extraChars == 0){
+        if(extraChars == 0){                            //Modify Opr: If extra char in middle, move forward
             i++;
         }
 
-        while (i < m && s.charAt(i) == t.charAt(i + extraChars)){   //Insert/Delete Opr: Proceed skipping 1 extra character
+        while (i < m && s.charAt(i) == t.charAt(i + extraChars)){   //Delete Opr: Proceed skipping 1 extra character
             i++;
         }
 

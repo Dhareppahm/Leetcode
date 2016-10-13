@@ -26,7 +26,7 @@ public class LongestSubstringWithAtmostTwoDistinctCharacters {
 
 //        int maxLen = obj.lengthOfLongestSubstringTwoDistinct(s);
 //        System.out.println(maxLen);
-        int k = 3;
+        int k = 2;
         int maxLen = obj.lengthOfLongestSubstringWithKDistinct_Generalised(s, k);
         System.out.println("Generalized for K distinct = "+maxLen);
     }
