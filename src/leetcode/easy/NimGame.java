@@ -21,9 +21,9 @@ public class NimGame {
 
 	public static boolean canWinNim(int n) {
 		if(n % 4 == 0){
-			return false;
+			return false;		//can't win
 		}else{
-			return true;
+			return true;		//can win in some way
 		}
 	}
 }

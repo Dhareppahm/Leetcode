@@ -41,16 +41,16 @@ public class BestTimeBuySellStock{
 		if(prices.length == 0)
 			return 0;
 
-		int buy = prices[0];
+		int minPrice = prices[0];
 		int profit = 0;
 
 		for(int i=1; i < prices.length; i++){
-			if(prices[i] < buy){								//buy at min price
-				buy = prices[i];
+			if(prices[i] < minPrice){								//buy at min price
+				minPrice = prices[i];
 			}
 
-			if(profit < prices[i] - buy){						//sell at max price, so check if more profit is found
-				profit = prices[i] - buy;
+			if(profit < prices[i] - minPrice){						//sell at max price, so check if more profit is found
+				profit = prices[i] - minPrice;
 			}
 		}	
 

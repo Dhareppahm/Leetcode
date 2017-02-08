@@ -3,7 +3,7 @@ package leetcode.easy;
 import java.util.Stack;
 
 /**
- * https://leetcode.com/problems/reverse-string/
+ https://leetcode.com/problems/reverse-string/
  * Reverse String:
     Problem:
     Write a function that takes a string as input and returns the string reversed.

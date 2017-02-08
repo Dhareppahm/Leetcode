@@ -28,10 +28,10 @@ import java.util.Stack;
     a) If stack is empty or heights[i] is greater than the bar at top of stack, then push ‘i’ to stack.
     b) If this bar is smaller than the top of stack, then keep removing the top of stack while top of the stack is greater.
        Let the removed bar be heights[topIndex]. Calculate area of rectangle with:
-        Height = heights[topIndex] and
-        Width = currentIndex - previous topIndex - 1
-        i.e For heights[topIndex], the ‘left index’ is previous (previous to topIndex) item in stack
-        and ‘right index’ is ‘i’ (current index).
+            Height = heights[topIndex] and
+            Width = currentIndex - previous topIndex - 1
+            i.e For heights[topIndex], the ‘left index’ is previous (previous to topIndex) item in stack
+            and ‘right index’ is ‘i’ (current index).
 
  3) If the stack is not empty, then one by one remove all bars from stack and do step 2.b for every removed bar.
  */
@@ -39,20 +39,20 @@ public class LargestRectangleInHistogram {
 
     public static void main(String[] args) {
         LargestRectangleInHistogram obj = new LargestRectangleInHistogram();
-        int[] heights = {2,1,5,6,2,3};
+        int[] heights = {2,4,6,8,10,12};//{2,1,5,6,2,3};
         int maxArea = obj.largestRectangleArea(heights);
         System.out.println(maxArea);
     }
 
     public int largestRectangleArea(int[] heights) {
 
-        Stack<Integer> stack = new Stack<>();       //maintain stack to store bars
+        Stack<Integer> stack = new Stack<>();       //vvv imp: maintain stack to store bars indexes
 
         int i=0, maxArea = 0;
 
         while(i < heights.length){
 
-            //push index to stack when the current height is larger than the previous one
+            //push index to stack when the current height is larger than the height of top index of stack
             if(stack.isEmpty() || heights[i] > heights[stack.peek()]){
                 stack.push(i);
                 i++;
@@ -60,13 +60,13 @@ public class LargestRectangleInHistogram {
                 //calculate max value when the current height is less than the previous one
                 int topIndex = stack.pop();
                 int h = heights[topIndex];
-                int w = stack.isEmpty() ? i : i - stack.peek() - 1;
+                int w = stack.isEmpty() ? i : i - stack.peek() - 1;     //Imp to find width
 
                 maxArea = Math.max(h * w, maxArea);
             }
         }
 
-        //If stack no empty, follow above step 2b
+        //If stack no empty, follow above step 2b (case when all increasing bars)
         while (!stack.isEmpty()){
             int topIndex = stack.pop();
             int h = heights[topIndex];

@@ -3,10 +3,10 @@ package leetcode.easy;
 import java.util.*;
 
 /**
- * https://leetcode.com/problems/plus-one/
- *
- * http://www.programcreek.com/2014/05/leetcode-plus-one-java/
- *
+ https://leetcode.com/problems/plus-one/
+
+ http://www.programcreek.com/2014/05/leetcode-plus-one-java/
+
  Given a non-negative number represented as an array of digits, plus one to the number.
  The digits are stored such that the most significant digit is at the head of the list.
 
@@ -27,17 +27,12 @@ public class PlusOne {
     public static void main(String[] args) {
         PlusOne po = new PlusOne();
 
-        int[] digits = {9,9};
+        int[] digits = {};
         int[] result = po.plusOne(digits);
         System.out.println(Arrays.toString(result));
     }
 
     public int[] plusOne(int[] digits) {
-
-        //edge cases
-        if(digits == null || digits.length==0){
-            digits = new int[1];
-        }
 
         int carry = 1;                      //start with carry 1 as we want to add 1
         for(int i=digits.length-1; i >= 0; i--){
@@ -52,8 +47,8 @@ public class PlusOne {
         if(carry > 0){
             int[] result = new int[digits.length+1];
             result[0] = carry;
-            for(int i=1; i < digits.length; i++){           //copy everything from digits to result
-                result[i] = digits[i];
+            for(int i=0; i < digits.length; i++){           //copy everything from digits to result
+                result[i+1] = digits[i];
             }
             return result;
         }

@@ -12,7 +12,7 @@ public class FactorialTrailingZeroes {
 
     public static void main(String[] args) {
         FactorialTrailingZeroes obj = new FactorialTrailingZeroes();
-        int n = 2147483647;
+        int n = 343;//2147483647;
         int zeros = obj.trailingZeroes(n);
         System.out.println(zeros);
     }

@@ -21,7 +21,8 @@ package leetcode.easy.tree.invertbinarytree;
 
  Trivia:
  This problem was inspired by this original tweet by Max Howell:
- Google: 90% of our engineers use the software you wrote (Homebrew), but you can’t invert a binary tree on a whiteboard so fuck off.
+ Google: 90% of our engineers use the software you wrote (Homebrew), but you can’t invert a binary tree on a whiteboard
+ so fuck off.
  ---------------------------------------------------------------------------------------------------------------------------------
  Approach:
     1. Make right subtree, left so store it in temp

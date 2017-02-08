@@ -16,7 +16,7 @@ package leetcode.easy;
  10000000
  So after checking that the number is greater than zero, we can use a clever little bit hack to test that one and only one bit is set.
 
- x & x-1 should return 0, as only 1 bit must b set and after this it will be 0. so x will be 0
+ x & x-1 should return 0, as only 1 bit must be set and after this it will be 0. so x will be 0
 
  bool isPowerOfTwo(int x) {
  return x > 0 && (x & x−1) == 0;

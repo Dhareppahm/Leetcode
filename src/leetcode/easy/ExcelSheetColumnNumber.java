@@ -21,9 +21,8 @@ Approach:
  Example if the input is 'CDA', and the values are 3,4,1
  the index of each char in the string in reverse order plus one is 2, 1, 0
 
- the formula is
-
- result = value(char) * 26^(order of char)
+ Formula:
+ result = result * 26 + (subtract by 'A' to get value of character between 0-26)
 
  so in this case.
 
@@ -33,12 +32,12 @@ Approach:
 public class ExcelSheetColumnNumber {
 
     public int titleToNumber(String s) {
-        int result = 0;
+        int colNo = 0;
         for(int i=0; i < s.length(); i++){
-            int charVal = ((int)s.charAt(i) - 'A') + 1;
-            result += charVal * Math.pow(26,i);
+            int charVal = (s.charAt(i) - 'A') + 1;
+            colNo = colNo * 26 + charVal;
         }
-        return result;
+        return colNo;
     }
 
     public static void main(String[] args) {

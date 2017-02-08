@@ -17,7 +17,7 @@ import java.util.HashMap;
  -----------------------------------------------------------------------------------------------------------------------
  Approach:
  Do 2 passes of the string
-    a. In first pass: Populate map with frequency of each character
+    a. In first pass: Populate map with frequency of each character. Can also use array [256]
     b. In second pass: Iterate string and check map and return the first index where value is 1
 
  */
@@ -31,7 +31,7 @@ public class FirstUniqueCharInString {
     }
 
     public int firstUniqChar(String s) {
-        HashMap<Character, Integer> map = new HashMap<>();
+        HashMap<Character, Integer> map = new HashMap<>();      //can also use int[256]
 
         // Do 2 passes of the string
         // In first pass: Populate map with frequency of each character

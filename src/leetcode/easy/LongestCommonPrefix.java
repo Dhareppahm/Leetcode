@@ -43,9 +43,8 @@ public class LongestCommonPrefix {
             char c1 = strs[0].charAt(i);            //i-th char in first string
 
             for(int j=1; j < strs.length; j++){     //i-th char in other strings
-//                char c2 = strs[j].charAt(i);
                 if(i >= strs[j].length() || c1 != strs[j].charAt(i)){       //if i becomes >= others strings length OR c1 != c2, return
-                    return strs[0].substring(0,i);      //return substring till matched
+                    return strs[0].substring(0,i);                          //return substring till matched
                 }
             }
         }

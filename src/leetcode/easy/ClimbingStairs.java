@@ -1,5 +1,7 @@
 package leetcode.easy;
 
+import java.util.Arrays;
+
 /**
  https://www.youtube.com/watch?v=CFQk7OQO_xM
  https://leetcode.com/problems/climbing-stairs/
@@ -16,15 +18,40 @@ public class ClimbingStairs {
 
     public static void main(String[] args) {
         ClimbingStairs obj = new ClimbingStairs();
-        int n = 0;
+        int n = 10;
         int result = obj.climbStairs(n);
+        System.out.println(result);
+
+        int[] memo = new int[n+1];
+        Arrays.fill(memo, -1);
+        result = obj.climbStairs_1(n, memo);
         System.out.println(result);
     }
 
+    /**
+     * Without memoization: Time complexity: O(2^n), Space complexity: O(n)
+     * With Memoization: Time complexity: O(n), Space complexity: O(n)
+     */
+    public int climbStairs_1(int n, int[] memo){
+        if(n < 0){
+            return 0;
+        }else if(n == 0){
+            return 1;
+        }else if(memo[n] > -1){
+            return memo[n];
+        }else{
+            memo[n] = climbStairs_1(n-1, memo) + climbStairs_1(n-2, memo);
+            return memo[n];
+        }
+    }
+
+    /**
+     * More optimised, reduced space complexity to O(1). Time complexity is: O(n)
+     */
     public int climbStairs(int n) {
         int n1 = 1, n2 = 1;         //used to store previous 2 values
 
-        //check base case
+        //check if n is 1
         if(n == n1 || n == n2){
             return n;
         }

@@ -9,7 +9,8 @@ package leetcode.easy;
 
  If you are thinking of converting the integer to string, note the restriction of using extra space.
 
- You could also try reversing an integer. However, if you have solved the problem "Reverse Integer", you know that the reversed integer might overflow. How would you handle such case?
+ You could also try reversing an integer. However, if you have solved the problem "Reverse Integer",
+ you know that the reversed integer might overflow. How would you handle such case?
 
  There is a more generic way of solving this problem.
  * --------------------------------------------------------------------------------------------------------------------
@@ -42,7 +43,7 @@ public class PalindromeNumber {
     public static void main(String[] args) {
         PalindromeNumber pn = new PalindromeNumber();
 
-        int num = 1230421;
+        int num = 1230321;
         boolean flag = pn.isPalindrome(num);
         System.out.println("Approach 1: " + flag);
 
@@ -57,7 +58,7 @@ public class PalindromeNumber {
         }
         int div = 1;                //div multiplied by 10, till same no.of digits as num
         while(x /div >= 10){        //initialize div to same no.of digits eg. if x = 121, div = 100, so we get leftmost digit
-            div *= 10;
+            div = div * 10;
         }
 
         while(x != 0) {
@@ -71,7 +72,7 @@ public class PalindromeNumber {
             x = x % div;            //remove leftmost digit
             x = x / 10;             //remove rightmost digit
 
-            div /= 100;             //as left and right most digits gone, so divide by 100
+            div = div / 100;             //as left and right most digits gone, so divide by 100
         }
 
         return true;

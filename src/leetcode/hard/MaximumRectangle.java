@@ -80,6 +80,10 @@ public class MaximumRectangle {
         return maxAreaRect;
     }
 
+
+    /**
+     * Same method for problem: Largest Rectangle in Histogram
+     */
     private int largestAreaInHistogram(int[] histogram){
         int i=0, maxArea = 0;
         Stack<Integer> s = new Stack<>();       //store histogram bar index in stack

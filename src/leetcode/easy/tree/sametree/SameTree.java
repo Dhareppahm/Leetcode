@@ -34,8 +34,8 @@ class BinaryTree{
 	}
 
 	/*
-	if both are null => Good they must be same
-	if either is null => Not Good as they both must be null at same time
+	If both are null => Good they must be same
+	If either is null => Not Good as they both must be null at same time
 
 	if left subtree is same AND right subtree is same AND node values same => return TRUE
 	else => return FALSE
